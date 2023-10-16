@@ -1,7 +1,7 @@
 package com.example.elastic_search_project.configuration;
 
+import lombok.RequiredArgsConstructor;
 import org.elasticsearch.client.RestHighLevelClient;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.ComponentScan;
@@ -13,19 +13,18 @@ import org.springframework.data.elasticsearch.repository.config.EnableElasticsea
 @Configuration
 @EnableElasticsearchRepositories(basePackages = "com.example.elastic_search_project.repository")
 @ComponentScan(basePackages = {"com.example.elastic_search_project"})
+@RequiredArgsConstructor
 public class Config extends AbstractElasticsearchConfiguration {
 
     @Value("${elasticsearch.url}")
     public String elasticSearchUrl;
 
-    @Autowired
-    private RestHighLevelClient elasticsearchClient;
+    private final RestHighLevelClient elasticsearchClient;
 
     @Bean
     @Override
     public RestHighLevelClient elasticsearchClient() {
-        ClientConfiguration clientConfiguration
-                = ClientConfiguration.builder()
+        ClientConfiguration clientConfiguration = ClientConfiguration.builder()
                 .connectedTo(elasticSearchUrl)
                 .build();
 

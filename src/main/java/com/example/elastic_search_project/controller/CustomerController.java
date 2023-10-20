@@ -3,21 +3,21 @@ package com.example.elastic_search_project.controller;
 import java.util.List;
 
 import lombok.RequiredArgsConstructor;
-import lombok.extern.log4j.Log4j2;
+
 import org.springframework.web.bind.annotation.*;
 import com.example.elastic_search_project.document.Customer;
 import com.example.elastic_search_project.service.CustomerService;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("api/customer")
+@RequestMapping("/api/customer")
 public class CustomerController {
 
     private final CustomerService customerService;
 
     @PostMapping("/save")
-    public void saveCustomer(@RequestBody List<Customer> customers) {
-        customerService.save(customers);
+    public Customer saveCustomer(@RequestBody Customer customer) {
+        return customerService.save(customer);
     }
 
     @GetMapping("/findAll")
@@ -26,13 +26,13 @@ public class CustomerController {
     }
 
     @GetMapping({"/{id}"})
-    public Customer findById(@PathVariable Long id) {
+    public Customer findById(@PathVariable String id) {
         return customerService.findById(id);
     }
 
-    @GetMapping("/findByFullName/{fullName}")
-    public List<Customer> findByFullName(@PathVariable String fullName) {
-        return customerService.findByFullName(fullName);
+    @PutMapping("/update{id}")
+    public Customer updateById(@RequestBody Customer customer, @PathVariable Integer id) {
+        return customerService.updateCustomer(customer, id);
     }
 
 }

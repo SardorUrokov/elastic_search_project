@@ -1,7 +1,5 @@
 package com.example.elastic_search_project.controller;
 
-import java.util.List;
-
 import lombok.RequiredArgsConstructor;
 
 import org.springframework.web.bind.annotation.*;
@@ -26,13 +24,18 @@ public class CustomerController {
     }
 
     @GetMapping({"/{id}"})
-    public Customer findById(@PathVariable String id) {
+    public Customer findById(@PathVariable int id) {
         return customerService.findById(id);
     }
 
-    @PutMapping("/update{id}")
+    @PutMapping("/update/{id}")
     public Customer updateById(@RequestBody Customer customer, @PathVariable Integer id) {
         return customerService.updateCustomer(customer, id);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public void deleteCustomer(@PathVariable int id){
+        customerService.deleteCustomer(id);
     }
 
 }

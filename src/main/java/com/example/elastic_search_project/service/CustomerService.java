@@ -2,6 +2,7 @@ package com.example.elastic_search_project.service;
 
 import java.util.List;
 
+import com.example.elastic_search_project.exceptions.ResourceNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import com.example.elastic_search_project.document.Customer;
@@ -22,7 +23,8 @@ public class CustomerService {
     }
 
     public Customer findById(int id) {
-        return customerRepository.findById(id).orElseThrow(null);
+        return customerRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Customer", "customer_id", id));
     }
 
     public Customer updateCustomer(Customer customer1, int id) {

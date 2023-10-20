@@ -1,5 +1,6 @@
 package com.example.elastic_search_project.configuration;
 
+//import org.springframework.data.elasticsearch.client.RestHighLevelClient;
 import org.elasticsearch.client.RestHighLevelClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.beans.factory.annotation.Value;
@@ -11,7 +12,7 @@ import org.springframework.data.elasticsearch.repository.config.EnableElasticsea
 
 @Configuration
 @EnableElasticsearchRepositories(basePackages = "com.example.elastic_search_project.repository")
-@ComponentScan(basePackages = {"com.example.elastic_search_project"})
+@ComponentScan(basePackages = "com.example.elastic_search_project.configuration")
 public class Config extends AbstractElasticsearchConfiguration {
 
     @Value("${elasticsearch.url}")
@@ -27,4 +28,5 @@ public class Config extends AbstractElasticsearchConfiguration {
         return RestClients.create(clientConfiguration)
                 .rest();
     }
+
 }

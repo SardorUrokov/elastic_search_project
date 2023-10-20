@@ -3,6 +3,7 @@ package com.example.elastic_search_project.controller;
 import java.util.List;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.web.bind.annotation.*;
 import com.example.elastic_search_project.document.Customer;
 import com.example.elastic_search_project.service.CustomerService;
@@ -10,6 +11,7 @@ import com.example.elastic_search_project.service.CustomerService;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("api/customer")
+@Log4j2
 public class CustomerController {
 
     private final CustomerService customerService;

@@ -11,7 +11,6 @@ import com.example.elastic_search_project.service.CustomerService;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("api/customer")
-@Log4j2
 public class CustomerController {
 
     private final CustomerService customerService;

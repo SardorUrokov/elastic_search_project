@@ -1,13 +1,14 @@
 package com.example.elastic_search_project.service;
 
-import com.example.elastic_search_project.exceptions.ResourceNotFoundException;
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import lombok.RequiredArgsConstructor;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import com.example.elastic_search_project.document.Customer;
 import com.example.elastic_search_project.repository.CustomerRepository;
+import com.example.elastic_search_project.exceptions.ResourceNotFoundException;
 
 @Slf4j
 @Service
@@ -49,4 +50,5 @@ public class CustomerService {
         customerRepository.deleteById(id);
         log.warn("Customer is Deleted by {} id", id);
     }
+
 }

@@ -12,7 +12,6 @@ import org.springframework.data.elasticsearch.annotations.Document;
 public class Customer {
 
     private int id;
-    private String fullName;
-    private int phoneNumber;
+    private String fullName, phoneNumber;
 
 }

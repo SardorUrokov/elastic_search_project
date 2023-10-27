@@ -1,6 +1,5 @@
 package com.example.elastic_search_project.service;
 
-import com.example.elastic_search_project.ElasticSearchProjectApplication;
 import lombok.RequiredArgsConstructor;
 
 import org.apache.logging.log4j.Logger;
@@ -8,8 +7,8 @@ import org.apache.logging.log4j.LogManager;
 import org.springframework.stereotype.Service;
 import com.example.elastic_search_project.document.Customer;
 import com.example.elastic_search_project.repository.CustomerRepository;
+import com.example.elastic_search_project.ElasticSearchProjectApplication;
 import com.example.elastic_search_project.exceptions.ResourceNotFoundException;
-
 
 @Service
 @RequiredArgsConstructor

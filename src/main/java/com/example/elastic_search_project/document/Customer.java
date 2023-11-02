@@ -10,8 +10,6 @@ import org.springframework.data.elasticsearch.annotations.Document;
 @AllArgsConstructor
 @Document(indexName = "customer")
 public class Customer {
-
     private int id;
     private String fullName, phoneNumber;
-
 }

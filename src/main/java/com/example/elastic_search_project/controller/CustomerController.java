@@ -37,5 +37,4 @@ public class CustomerController {
     public void deleteCustomer(@PathVariable int id){
         customerService.deleteCustomer(id);
     }
-
 }
